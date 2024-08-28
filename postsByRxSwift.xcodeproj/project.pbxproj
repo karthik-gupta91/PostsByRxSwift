@@ -166,13 +166,13 @@
 		1F39A6862C7C6A79009CF3E8 /* postsByRxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				1F39A6C82C7C9FE3009CF3E8 /* Post */,
+				1F39A6C42C7C9FB9009CF3E8 /* Login */,
+				1F39A6CC2C7D9754009CF3E8 /* Service */,
 				1F39A6EF2C7E21BF009CF3E8 /* Manager */,
 				1F39A6EA2C7E1FE1009CF3E8 /* CoreDataModels */,
 				1F39A6D62C7DBB26009CF3E8 /* Extensions */,
 				1F39A6CF2C7D97CD009CF3E8 /* Helpers */,
-				1F39A6CC2C7D9754009CF3E8 /* Service */,
-				1F39A6C82C7C9FE3009CF3E8 /* Post */,
-				1F39A6C42C7C9FB9009CF3E8 /* Login */,
 				1F39A6872C7C6A79009CF3E8 /* AppDelegate.swift */,
 				1F39A6892C7C6A79009CF3E8 /* SceneDelegate.swift */,
 				1F39A68D2C7C6A79009CF3E8 /* Main.storyboard */,
@@ -800,6 +800,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -830,6 +831,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
