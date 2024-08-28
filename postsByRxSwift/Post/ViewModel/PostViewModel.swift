@@ -90,12 +90,9 @@ class PostViewModel {
     }
     
     func addRemoveFavouritePost(_ post: Post) {
-        if favouritePostArray.contains(where: { localPost in
-            localPost.id == post.id
-        }) {
-            favouritePostArray.removeAll { localPost in
-                localPost.id == post.id
-            }
+        
+        if favouritePostArray.contains(where: { $0.id == post.id }) {
+            favouritePostArray.removeAll(where: { $0.id == post.id })
             CDPost.updatePostInCD(post.id, false)
         } else {
             favouritePostArray.append(post)
@@ -107,12 +104,7 @@ class PostViewModel {
     }
     
     func isFavoritePost(_ post: Post) -> Bool {
-        if favouritePostArray.contains(where: { localPost in
-            localPost.id == post.id
-        }) {
-            return true
-        }
-        return false
+        return favouritePostArray.contains(where: { $0.id == post.id }) ? true : false
     }
     
     func addCDSavedData(dict : [String: Any]) {
