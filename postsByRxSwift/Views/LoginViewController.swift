@@ -25,6 +25,12 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
         self.title = Constants.Titles.login
         navigationController?.navigationBar.prefersLargeTitles = false
 
+        emailTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 62))
+        emailTextField.leftViewMode = .always
+        
+        passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 62))
+        passwordTextField.leftViewMode = .always
+        
         setUpBinding();
         setUpObservables()
         
