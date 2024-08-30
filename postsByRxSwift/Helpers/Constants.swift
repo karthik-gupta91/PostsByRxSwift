@@ -49,4 +49,9 @@ struct Constants {
     enum ContentType: String {
         case json = "application/json"
     }
+    
+    struct LoginConstants {
+        static let TFHeight = 60
+        static let TFWidth = 16
+    }
 }
