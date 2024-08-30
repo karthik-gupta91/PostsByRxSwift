@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QiT-sZ-07t">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QiT-sZ-07t">
                                 <rect key="frame" x="32" y="336" width="329" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Jp2-x7-9bm"/>
@@ -110,7 +110,7 @@
                             <constraint firstItem="KR1-gv-YA8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nX1-Xn-9sa" secondAttribute="leading" constant="16" id="mv8-g4-8WV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Posts" id="C6Y-ey-J70"/>
+                    <tabBarItem key="tabBarItem" title="Posts" selectedImage="folder.fill" catalog="system" id="C6Y-ey-J70"/>
                     <connections>
                         <outlet property="postTableView" destination="1Ul-kg-0Ab" id="SdZ-E1-tQA"/>
                     </connections>
@@ -151,7 +151,7 @@
                             <constraint firstItem="Fv4-3c-wYO" firstAttribute="top" secondItem="HBU-Ve-oco" secondAttribute="top" id="f2v-ai-Cf5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourite Posts" id="0xl-AE-Jc6"/>
+                    <tabBarItem key="tabBarItem" title="Favourite Posts" selectedImage="folder.fill.badge.gearshape" catalog="system" id="0xl-AE-Jc6"/>
                     <connections>
                         <outlet property="favouriteTableView" destination="Fv4-3c-wYO" id="2Tz-Kk-uOj"/>
                     </connections>
@@ -180,6 +180,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="folder.fill" catalog="system" width="128" height="96"/>
+        <image name="folder.fill.badge.gearshape" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

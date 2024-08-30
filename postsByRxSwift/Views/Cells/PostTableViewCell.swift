@@ -30,8 +30,8 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func configureCell(_ post: Post,_ isFavorite: Bool) {
-        titleLabel.text = post.title
-        detailLabel.text = post.body
+        titleLabel.text = post.title.capitalized
+        detailLabel.text = post.body.capitalized
         isFavorite ? favBtn.setImage(UIImage(systemName: "star.fill"), for: .normal) : favBtn.setImage(UIImage(systemName: "star"), for: .normal)
     }
     

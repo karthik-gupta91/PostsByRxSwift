@@ -72,8 +72,6 @@ class PostViewModel {
                     }
                 )
                 .disposed(by: bag)
-        } else {
-            self.isLoading.accept(false)
         }
         
     }

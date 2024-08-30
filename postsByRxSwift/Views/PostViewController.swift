@@ -48,9 +48,6 @@ class PostViewController: UIViewController {
         
         postTableView.rx.modelSelected(Post.self).bind{ [unowned self] post in
             self.viewModel.updateFavouriteStatus(on: post)
-            if let selectedIndex = self.postTableView.indexPathForSelectedRow {
-                self.postTableView.deselectRow(at: selectedIndex, animated: true)
-            }
         }.disposed(by: bag)
         
     }
