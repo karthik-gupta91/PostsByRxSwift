@@ -11,6 +11,7 @@ import PKHUD
 
 class FavouritePostViewController: UIViewController {
 
+    @IBOutlet weak var noDataLabel: UILabel!
     @IBOutlet weak var favouriteTableView: UITableView!
     
     private let bag = DisposeBag()
@@ -24,6 +25,7 @@ class FavouritePostViewController: UIViewController {
         favouriteTableView.register(UINib(nibName: Constants.NibName.postTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.CellIdentifier.postTableViewCell)
         
         subscribeLoadingHud()
+        subscribeEmptyView()
         bindFavouriteTableData()
         
     }
@@ -53,6 +55,14 @@ class FavouritePostViewController: UIViewController {
         viewModel
             .onShowLoadingHud
             .map { [weak self] in self?.setLoadingHud(visible: $0) }
+            .subscribe()
+            .disposed(by: bag)
+    }
+    
+    private func subscribeEmptyView() {
+        viewModel
+            .onShowEmptyView
+            .map { [weak self] in self?.noDataLabel.isHidden = !$0 }
             .subscribe()
             .disposed(by: bag)
     }

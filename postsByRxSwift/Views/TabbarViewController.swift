@@ -13,6 +13,7 @@ class TabbarViewController: UITabBarController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.setHidesBackButton(true, animated: true)
+        
         // Do any additional setup after loading the view.
     }
     

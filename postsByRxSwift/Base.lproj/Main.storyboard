@@ -17,17 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QiT-sZ-07t">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QiT-sZ-07t">
                                 <rect key="frame" x="32" y="336" width="329" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Jp2-x7-9bm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="scl-ck-9VD">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="scl-ck-9VD">
                                 <rect key="frame" x="32" y="403" width="329" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3j-oS-mK8">
@@ -35,20 +35,27 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="LOGIN"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="2jZ-n8-lUy">
+                                <rect key="frame" x="124" y="130" width="145" height="156"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.7254902124" green="0.89019608500000003" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="scl-ck-9VD" firstAttribute="height" secondItem="QiT-sZ-07t" secondAttribute="height" id="16X-to-H3c"/>
                             <constraint firstItem="QiT-sZ-07t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="2hE-n5-89G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2jZ-n8-lUy" secondAttribute="trailing" constant="124" id="E1s-5a-lDn"/>
                             <constraint firstItem="scl-ck-9VD" firstAttribute="leading" secondItem="QiT-sZ-07t" secondAttribute="leading" id="FyU-6y-CpJ"/>
                             <constraint firstItem="s3j-oS-mK8" firstAttribute="width" secondItem="scl-ck-9VD" secondAttribute="width" id="H0Z-TG-KYa"/>
                             <constraint firstItem="QiT-sZ-07t" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Nl3-la-qda"/>
                             <constraint firstItem="s3j-oS-mK8" firstAttribute="top" secondItem="scl-ck-9VD" secondAttribute="bottom" constant="49" id="O08-qB-BJq"/>
                             <constraint firstItem="s3j-oS-mK8" firstAttribute="centerX" secondItem="scl-ck-9VD" secondAttribute="centerX" id="Puy-vK-phC"/>
                             <constraint firstItem="QiT-sZ-07t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="233" id="cnX-xU-4Ex"/>
+                            <constraint firstItem="2jZ-n8-lUy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="doy-zO-o4N"/>
                             <constraint firstItem="scl-ck-9VD" firstAttribute="width" secondItem="QiT-sZ-07t" secondAttribute="width" id="eO5-6R-UnC"/>
                             <constraint firstItem="scl-ck-9VD" firstAttribute="top" secondItem="QiT-sZ-07t" secondAttribute="bottom" constant="27" id="fqZ-n4-s0Q"/>
+                            <constraint firstItem="2jZ-n8-lUy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="kcU-ut-E1e"/>
+                            <constraint firstItem="QiT-sZ-07t" firstAttribute="top" secondItem="2jZ-n8-lUy" secondAttribute="bottom" constant="50" id="rSL-Io-Iwr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2rb-D7-Fke"/>
@@ -60,16 +67,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1292" y="-1096"/>
+            <point key="canvasLocation" x="-1292.3664122137404" y="-1097.1830985915494"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gNG-yQ-7Fm">
             <objects>
                 <navigationController id="ZWz-Tc-3CS" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SJD-Ia-Cm7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="SJD-Ia-Cm7">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RAr-wE-Y6A">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JlA-9L-BBB"/>
                     </connections>
@@ -98,7 +109,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nX1-Xn-9sa"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72549019607843135" green="0.8901960784313725" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="1Ul-kg-0Ab" firstAttribute="top" secondItem="nX1-Xn-9sa" secondAttribute="top" id="4kC-3Q-OOS"/>
                             <constraint firstItem="nX1-Xn-9sa" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KR1-gv-YA8" secondAttribute="trailing" constant="16" id="FeO-yv-1ii"/>
@@ -110,7 +121,9 @@
                             <constraint firstItem="KR1-gv-YA8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nX1-Xn-9sa" secondAttribute="leading" constant="16" id="mv8-g4-8WV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Posts" selectedImage="folder.fill" catalog="system" id="C6Y-ey-J70"/>
+                    <tabBarItem key="tabBarItem" title="Posts" image="comments" id="C6Y-ey-J70">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="postTableView" destination="1Ul-kg-0Ab" id="SdZ-E1-tQA"/>
                     </connections>
@@ -119,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="962.59541984732823" y="-596.47887323943667"/>
         </scene>
-        <!--Favourite Posts-->
+        <!--Favourite Post-->
         <scene sceneID="ZTP-Pt-gdA">
             <objects>
                 <viewController storyboardIdentifier="FavouritePostViewController" id="wFf-Lc-ZfA" customClass="FavouritePostViewController" customModule="postsByRxSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,33 +140,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Favourite Post Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLm-um-wz1">
-                                <rect key="frame" x="68.333333333333343" y="412" width="256.66666666666663" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fv4-3c-wYO">
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Favourite Post Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLm-um-wz1">
+                                <rect key="frame" x="68.333333333333343" y="413" width="256.66666666666663" height="26.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HBU-Ve-oco"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72549019607843135" green="0.8901960784313725" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="WLm-um-wz1" firstAttribute="centerX" secondItem="Fv4-3c-wYO" secondAttribute="centerX" id="5eD-F4-wyz"/>
                             <constraint firstItem="HBU-Ve-oco" firstAttribute="bottom" secondItem="Fv4-3c-wYO" secondAttribute="bottom" id="6QW-qI-Mmj"/>
                             <constraint firstItem="Fv4-3c-wYO" firstAttribute="leading" secondItem="HBU-Ve-oco" secondAttribute="leading" id="AqY-ub-Y7h"/>
-                            <constraint firstItem="WLm-um-wz1" firstAttribute="top" secondItem="HBU-Ve-oco" secondAttribute="top" constant="353" id="EmV-r8-o06"/>
                             <constraint firstItem="WLm-um-wz1" firstAttribute="centerY" secondItem="Cmb-kM-YTc" secondAttribute="centerY" id="PEi-9d-6PT"/>
-                            <constraint firstItem="WLm-um-wz1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HBU-Ve-oco" secondAttribute="leading" constant="16" id="VUv-Aw-bB1"/>
                             <constraint firstItem="HBU-Ve-oco" firstAttribute="trailing" secondItem="Fv4-3c-wYO" secondAttribute="trailing" id="XMv-EW-kS7"/>
                             <constraint firstItem="Fv4-3c-wYO" firstAttribute="top" secondItem="HBU-Ve-oco" secondAttribute="top" id="f2v-ai-Cf5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourite Posts" selectedImage="folder.fill.badge.gearshape" catalog="system" id="0xl-AE-Jc6"/>
+                    <tabBarItem key="tabBarItem" title="Favourite Post" image="favourite" id="0xl-AE-Jc6"/>
                     <connections>
                         <outlet property="favouriteTableView" destination="Fv4-3c-wYO" id="2Tz-Kk-uOj"/>
+                        <outlet property="noDataLabel" destination="WLm-um-wz1" id="ir0-5M-gK7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0u-wc-TBK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -180,8 +192,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="folder.fill" catalog="system" width="128" height="96"/>
-        <image name="folder.fill.badge.gearshape" catalog="system" width="128" height="93"/>
+        <image name="Logo" width="250" height="250"/>
+        <image name="comments" width="24" height="24"/>
+        <image name="favourite" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
