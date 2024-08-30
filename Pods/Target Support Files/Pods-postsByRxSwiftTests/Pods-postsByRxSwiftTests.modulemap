@@ -1,0 +1,6 @@
+framework module Pods_postsByRxSwiftTests {
+  umbrella header "Pods-postsByRxSwiftTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
