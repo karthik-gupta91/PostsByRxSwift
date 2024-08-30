@@ -9,7 +9,6 @@ target 'postsByRxSwift' do
   pod 'RxCocoa'
   pod 'Alamofire'
   pod 'PKHUD', '~> 5.0'
-  pod 'RealmSwift'
 
   # Pods for postsByRxSwift
 
