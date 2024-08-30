@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F08557F2C80C9330039E50B /* FavouritePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F08557E2C80C9330039E50B /* FavouritePostViewController.swift */; };
+		1F0855812C80CF640039E50B /* FavoritePostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0855802C80CF640039E50B /* FavoritePostVM.swift */; };
+		1F0855832C817E4C0039E50B /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0855822C817E4C0039E50B /* TabbarViewController.swift */; };
 		1F39A6882C7C6A79009CF3E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6872C7C6A79009CF3E8 /* AppDelegate.swift */; };
 		1F39A68A2C7C6A79009CF3E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6892C7C6A79009CF3E8 /* SceneDelegate.swift */; };
 		1F39A68C2C7C6A79009CF3E8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A68B2C7C6A79009CF3E8 /* LoginViewController.swift */; };
@@ -61,6 +64,9 @@
 /* Begin PBXFileReference section */
 		01C9CAAD0718D7808EA6A6C1 /* Pods_postsByRxSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_postsByRxSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F24010E8E1F93E3B99F969 /* Pods-postsByRxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-postsByRxSwift.release.xcconfig"; path = "Target Support Files/Pods-postsByRxSwift/Pods-postsByRxSwift.release.xcconfig"; sourceTree = "<group>"; };
+		1F08557E2C80C9330039E50B /* FavouritePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePostViewController.swift; sourceTree = "<group>"; };
+		1F0855802C80CF640039E50B /* FavoritePostVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePostVM.swift; sourceTree = "<group>"; };
+		1F0855822C817E4C0039E50B /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		1F39A6842C7C6A79009CF3E8 /* postsByRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = postsByRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F39A6872C7C6A79009CF3E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F39A6892C7C6A79009CF3E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,8 +172,9 @@
 		1F39A6862C7C6A79009CF3E8 /* postsByRxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				1F39A6C82C7C9FE3009CF3E8 /* Post */,
-				1F39A6C42C7C9FB9009CF3E8 /* Login */,
+				1F39A6C92C7C9FEB009CF3E8 /* Views */,
+				1F39A6CA2C7C9FEF009CF3E8 /* ViewModels */,
+				1F39A6CB2C7C9FF5009CF3E8 /* Models */,
 				1F39A6CC2C7D9754009CF3E8 /* Service */,
 				1F39A6EF2C7E21BF009CF3E8 /* Manager */,
 				1F39A6EA2C7E1FE1009CF3E8 /* CoreDataModels */,
@@ -201,73 +208,35 @@
 			path = postsByRxSwiftUITests;
 			sourceTree = "<group>";
 		};
-		1F39A6C42C7C9FB9009CF3E8 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				1F39A6C72C7C9FD2009CF3E8 /* View */,
-				1F39A6C62C7C9FCA009CF3E8 /* ViewModel */,
-				1F39A6C52C7C9FC2009CF3E8 /* Model */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		1F39A6C52C7C9FC2009CF3E8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1F39A6BC2C7C826E009CF3E8 /* LoginModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1F39A6C62C7C9FCA009CF3E8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				1F39A6BE2C7C830C009CF3E8 /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		1F39A6C72C7C9FD2009CF3E8 /* View */ = {
+		1F39A6C92C7C9FEB009CF3E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				1F39A68B2C7C6A79009CF3E8 /* LoginViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1F39A6C82C7C9FE3009CF3E8 /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				1F39A6C92C7C9FEB009CF3E8 /* View */,
-				1F39A6CA2C7C9FEF009CF3E8 /* ViewModel */,
-				1F39A6CB2C7C9FF5009CF3E8 /* Model */,
-			);
-			path = Post;
-			sourceTree = "<group>";
-		};
-		1F39A6C92C7C9FEB009CF3E8 /* View */ = {
-			isa = PBXGroup;
-			children = (
+				1F0855822C817E4C0039E50B /* TabbarViewController.swift */,
 				1F39A6C02C7C9836009CF3E8 /* PostViewController.swift */,
+				1F08557E2C80C9330039E50B /* FavouritePostViewController.swift */,
 				1F39A6E42C7DE89F009CF3E8 /* Cells */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		1F39A6CA2C7C9FEF009CF3E8 /* ViewModel */ = {
+		1F39A6CA2C7C9FEF009CF3E8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				1F39A6BE2C7C830C009CF3E8 /* LoginViewModel.swift */,
 				1F39A6C22C7C98FC009CF3E8 /* PostViewModel.swift */,
+				1F0855802C80CF640039E50B /* FavoritePostVM.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		1F39A6CB2C7C9FF5009CF3E8 /* Model */ = {
+		1F39A6CB2C7C9FF5009CF3E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F39A6BC2C7C826E009CF3E8 /* LoginModel.swift */,
 				1F39A6BA2C7C8115009CF3E8 /* PostModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1F39A6CC2C7D9754009CF3E8 /* Service */ = {
@@ -589,11 +558,14 @@
 			files = (
 				1F39A6F32C7ED190009CF3E8 /* NSManagedObject+Extension.swift in Sources */,
 				1F39A6C12C7C9836009CF3E8 /* PostViewController.swift in Sources */,
+				1F08557F2C80C9330039E50B /* FavouritePostViewController.swift in Sources */,
+				1F0855832C817E4C0039E50B /* TabbarViewController.swift in Sources */,
 				1F39A6DE2C7DD9FF009CF3E8 /* ApiError.swift in Sources */,
 				1F39A6CE2C7D979C009CF3E8 /* ApiClient.swift in Sources */,
 				1F39A6D82C7DBB39009CF3E8 /* UIViewController+Extensions.swift in Sources */,
 				1F39A6BB2C7C8115009CF3E8 /* PostModel.swift in Sources */,
 				1F39A68C2C7C6A79009CF3E8 /* LoginViewController.swift in Sources */,
+				1F0855812C80CF640039E50B /* FavoritePostVM.swift in Sources */,
 				1F39A6BD2C7C826E009CF3E8 /* LoginModel.swift in Sources */,
 				1F39A6E02C7DDABC009CF3E8 /* Constants.swift in Sources */,
 				1F39A6F82C7ED9E6009CF3E8 /* CDPost+CoreDataClass.swift in Sources */,

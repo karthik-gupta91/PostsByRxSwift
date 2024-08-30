@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,14 +29,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ez1-RP-C8t">
+                        <rect key="frame" x="286" y="10" width="52" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="LVx-wY-DQv"/>
+                            <constraint firstAttribute="width" constant="52" id="xrG-uw-8Kr"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6ia-Zh-AkQ" secondAttribute="trailing" constant="16" id="053-nL-U0G"/>
                     <constraint firstItem="kbF-Pj-QmD" firstAttribute="top" secondItem="6ia-Zh-AkQ" secondAttribute="bottom" constant="16" id="20N-1B-w7Q"/>
+                    <constraint firstItem="ez1-RP-C8t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6ia-Zh-AkQ" secondAttribute="trailing" constant="16" id="50g-Eb-s5f"/>
+                    <constraint firstAttribute="trailing" secondItem="ez1-RP-C8t" secondAttribute="trailing" constant="8" id="6LW-TH-4Ox"/>
+                    <constraint firstItem="ez1-RP-C8t" firstAttribute="top" secondItem="6ia-Zh-AkQ" secondAttribute="top" id="7UI-GI-34q"/>
                     <constraint firstItem="6ia-Zh-AkQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="EaN-6y-owQ"/>
                     <constraint firstItem="kbF-Pj-QmD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="ILW-m5-Rks"/>
+                    <constraint firstItem="ez1-RP-C8t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kbF-Pj-QmD" secondAttribute="trailing" constant="16" id="Jlg-BW-ji8"/>
                     <constraint firstItem="6ia-Zh-AkQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="XKJ-0r-Uww"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kbF-Pj-QmD" secondAttribute="trailing" constant="16" id="e5j-3Q-6xR"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kbF-Pj-QmD" secondAttribute="bottom" constant="10" id="urM-2h-xPK"/>
                 </constraints>
             </tableViewCellContentView>
@@ -45,9 +57,13 @@
             </constraints>
             <connections>
                 <outlet property="detailLabel" destination="kbF-Pj-QmD" id="pFz-Yc-JyO"/>
+                <outlet property="favBtn" destination="ez1-RP-C8t" id="VSl-FK-5J2"/>
                 <outlet property="titleLabel" destination="6ia-Zh-AkQ" id="rem-z7-B9Y"/>
             </connections>
             <point key="canvasLocation" x="-30.534351145038165" y="71.126760563380287"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+    </resources>
 </document>

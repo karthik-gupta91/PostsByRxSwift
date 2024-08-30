@@ -13,11 +13,14 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
+    @IBOutlet weak var favBtn: UIButton!
     let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        favBtn.setTitle("", for: .normal)
+        favBtn.isUserInteractionEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,7 +32,7 @@ class PostTableViewCell: UITableViewCell {
     func configureCell(_ post: Post,_ isFavorite: Bool) {
         titleLabel.text = post.title
         detailLabel.text = post.body
-        backgroundColor = isFavorite ? .lightGray : .white
+        isFavorite ? favBtn.setImage(UIImage(systemName: "star.fill"), for: .normal) : favBtn.setImage(UIImage(systemName: "star"), for: .normal)
     }
     
 }

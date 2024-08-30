@@ -18,6 +18,7 @@ struct Constants {
     struct Titles {
         static let posts = "POSTS"
         static let login = "LOGIN"
+        static let favouritePosts = "FAVOURITE POSTS"
     }
     
     struct CellIdentifier {
@@ -26,6 +27,8 @@ struct Constants {
     
     struct VCIdentifier {
         static let postViewController = "PostViewController"
+        static let favouritePostViewController = "FavouritePostViewController"
+        static let tabbarViewController = "TabbarViewController"
     }
     
     struct StoryBoardName {

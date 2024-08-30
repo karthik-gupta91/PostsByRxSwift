@@ -23,7 +23,7 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
         // Do any additional setup after loading the view.
         
         self.title = Constants.Titles.login
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
 
         setUpBinding();
         setUpObservables()
@@ -62,7 +62,7 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
             .onSuccess
             .subscribe(
                 onNext: { [weak self] in
-                    self?.pushToPostVC()
+                    self?.pushToTabbarVC()
                 }
             ).disposed(by: disposeBag)
 
@@ -74,9 +74,9 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
 
     }
     
-    private func pushToPostVC() {
+    private func pushToTabbarVC() {
         let storyboard = UIStoryboard(name: Constants.StoryBoardName.main, bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: Constants.VCIdentifier.postViewController)
+        let vc = storyboard.instantiateViewController(withIdentifier: Constants.VCIdentifier.tabbarViewController)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

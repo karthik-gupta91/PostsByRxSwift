@@ -26,10 +26,22 @@ public class CDPost: NSManagedObject {
         CoreDataManager.manager.saveContext()
     }
     
-    static func updatePostInCD(_ id: Int, _ isFavourite: Bool) {
-        let cdPost = getPost(from: id)
-        cdPost?.setValue(isFavourite, forKey: "isFavourite")
-        CoreDataManager.manager.saveContext()
+    static func updatePostInCD(post: Post) {
+        if let cdPost = getPost(from: post.id) {
+            cdPost.setValue(post.userId, forKey: "userId")
+            cdPost.setValue(post.title, forKey: "title")
+            cdPost.setValue(post.body, forKey: "body")
+        } else {
+            let cdPost = CDPost.getNewObject()
+            cdPost.savePostInCD(post: post)
+        }
+    }
+    
+    static func updateFavouriteStatus(_ id: Int, _ isFavourite: Bool) {
+        if let cdPost = getPost(from: id) {
+            cdPost.setValue(isFavourite, forKey: "isFavourite")
+            CoreDataManager.manager.saveContext()
+        }
     }
     
     static func getPost(from id: Int) -> CDPost? {

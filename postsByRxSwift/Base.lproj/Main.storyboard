@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZWz-Tc-3CS">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -77,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="-2101" y="-1096"/>
         </scene>
-        <!--Post View Controller-->
+        <!--Posts-->
         <scene sceneID="so3-IH-nWH">
             <objects>
                 <viewController storyboardIdentifier="PostViewController" id="pEk-OR-gXq" customClass="PostViewController" customModule="postsByRxSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,22 +86,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GCU-5v-HSG">
-                                <rect key="frame" x="16" y="787" width="361" height="32"/>
-                                <segments>
-                                    <segment title="Posts"/>
-                                    <segment title="Favourite Posts"/>
-                                </segments>
-                                <connections>
-                                    <action selector="indexChanged:" destination="pEk-OR-gXq" eventType="valueChanged" id="Co5-AC-BT4"/>
-                                </connections>
-                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Post Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KR1-gv-YA8">
+                                <rect key="frame" x="114.33333333333333" y="401" width="164.66666666666669" height="26.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Ul-kg-0Ab">
-                                <rect key="frame" x="0.0" y="59" width="393" height="720"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Jh-vD-Vbl">
-                                <rect key="frame" x="0.0" y="59" width="393" height="720"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -108,27 +101,82 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1Ul-kg-0Ab" firstAttribute="top" secondItem="nX1-Xn-9sa" secondAttribute="top" id="4kC-3Q-OOS"/>
+                            <constraint firstItem="nX1-Xn-9sa" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KR1-gv-YA8" secondAttribute="trailing" constant="16" id="FeO-yv-1ii"/>
                             <constraint firstItem="1Ul-kg-0Ab" firstAttribute="leading" secondItem="nX1-Xn-9sa" secondAttribute="leading" id="FyA-Bq-vBP"/>
-                            <constraint firstItem="9Jh-vD-Vbl" firstAttribute="centerY" secondItem="1Ul-kg-0Ab" secondAttribute="centerY" id="QwA-QP-a1h"/>
-                            <constraint firstItem="9Jh-vD-Vbl" firstAttribute="height" secondItem="1Ul-kg-0Ab" secondAttribute="height" id="YKb-wJ-zoa"/>
-                            <constraint firstItem="nX1-Xn-9sa" firstAttribute="trailing" secondItem="GCU-5v-HSG" secondAttribute="trailing" constant="16" id="Yzf-kC-gPM"/>
+                            <constraint firstItem="KR1-gv-YA8" firstAttribute="centerX" secondItem="nX1-Xn-9sa" secondAttribute="centerX" id="UUl-7S-MX2"/>
+                            <constraint firstItem="KR1-gv-YA8" firstAttribute="centerY" secondItem="nX1-Xn-9sa" secondAttribute="centerY" id="b1Q-Xt-HuZ"/>
                             <constraint firstItem="nX1-Xn-9sa" firstAttribute="trailing" secondItem="1Ul-kg-0Ab" secondAttribute="trailing" id="dMJ-9U-3I2"/>
-                            <constraint firstItem="GCU-5v-HSG" firstAttribute="top" secondItem="1Ul-kg-0Ab" secondAttribute="bottom" constant="8" symbolic="YES" id="dOc-0x-N30"/>
-                            <constraint firstItem="GCU-5v-HSG" firstAttribute="leading" secondItem="nX1-Xn-9sa" secondAttribute="leading" constant="16" id="gdC-L1-qql"/>
-                            <constraint firstItem="9Jh-vD-Vbl" firstAttribute="width" secondItem="1Ul-kg-0Ab" secondAttribute="width" id="nU0-3h-MYz"/>
-                            <constraint firstItem="nX1-Xn-9sa" firstAttribute="bottom" secondItem="GCU-5v-HSG" secondAttribute="bottom" id="qpb-Ab-Mca"/>
-                            <constraint firstItem="9Jh-vD-Vbl" firstAttribute="centerX" secondItem="1Ul-kg-0Ab" secondAttribute="centerX" id="zur-gT-CSX"/>
+                            <constraint firstItem="nX1-Xn-9sa" firstAttribute="bottom" secondItem="1Ul-kg-0Ab" secondAttribute="bottom" id="dbs-FA-jY3"/>
+                            <constraint firstItem="KR1-gv-YA8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nX1-Xn-9sa" secondAttribute="leading" constant="16" id="mv8-g4-8WV"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Posts" id="C6Y-ey-J70"/>
                     <connections>
-                        <outlet property="favouriteTableView" destination="9Jh-vD-Vbl" id="0N4-XG-ggk"/>
                         <outlet property="postTableView" destination="1Ul-kg-0Ab" id="SdZ-E1-tQA"/>
-                        <outlet property="segmentedCtrl" destination="GCU-5v-HSG" id="ZjS-op-eCO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3C-eS-pGW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-437" y="-1096"/>
+            <point key="canvasLocation" x="962.59541984732823" y="-596.47887323943667"/>
+        </scene>
+        <!--Favourite Posts-->
+        <scene sceneID="ZTP-Pt-gdA">
+            <objects>
+                <viewController storyboardIdentifier="FavouritePostViewController" id="wFf-Lc-ZfA" customClass="FavouritePostViewController" customModule="postsByRxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cmb-kM-YTc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Favourite Post Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLm-um-wz1">
+                                <rect key="frame" x="68.333333333333343" y="412" width="256.66666666666663" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fv4-3c-wYO">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HBU-Ve-oco"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WLm-um-wz1" firstAttribute="centerX" secondItem="Fv4-3c-wYO" secondAttribute="centerX" id="5eD-F4-wyz"/>
+                            <constraint firstItem="HBU-Ve-oco" firstAttribute="bottom" secondItem="Fv4-3c-wYO" secondAttribute="bottom" id="6QW-qI-Mmj"/>
+                            <constraint firstItem="Fv4-3c-wYO" firstAttribute="leading" secondItem="HBU-Ve-oco" secondAttribute="leading" id="AqY-ub-Y7h"/>
+                            <constraint firstItem="WLm-um-wz1" firstAttribute="top" secondItem="HBU-Ve-oco" secondAttribute="top" constant="353" id="EmV-r8-o06"/>
+                            <constraint firstItem="WLm-um-wz1" firstAttribute="centerY" secondItem="Cmb-kM-YTc" secondAttribute="centerY" id="PEi-9d-6PT"/>
+                            <constraint firstItem="WLm-um-wz1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HBU-Ve-oco" secondAttribute="leading" constant="16" id="VUv-Aw-bB1"/>
+                            <constraint firstItem="HBU-Ve-oco" firstAttribute="trailing" secondItem="Fv4-3c-wYO" secondAttribute="trailing" id="XMv-EW-kS7"/>
+                            <constraint firstItem="Fv4-3c-wYO" firstAttribute="top" secondItem="HBU-Ve-oco" secondAttribute="top" id="f2v-ai-Cf5"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favourite Posts" id="0xl-AE-Jc6"/>
+                    <connections>
+                        <outlet property="favouriteTableView" destination="Fv4-3c-wYO" id="2Tz-Kk-uOj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f0u-wc-TBK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="963" y="113"/>
+        </scene>
+        <!--Tabbar View Controller-->
+        <scene sceneID="PDS-pz-PTx">
+            <objects>
+                <tabBarController storyboardIdentifier="TabbarViewController" id="NBV-rk-hnw" customClass="TabbarViewController" customModule="postsByRxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bMH-wZ-JWj">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pEk-OR-gXq" kind="relationship" relationship="viewControllers" id="Gcx-wT-EFU"/>
+                        <segue destination="wFf-Lc-ZfA" kind="relationship" relationship="viewControllers" id="kgu-wf-lUZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JeC-Za-COV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-556" y="-312"/>
         </scene>
     </scenes>
     <resources>

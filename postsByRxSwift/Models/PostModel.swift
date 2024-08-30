@@ -11,9 +11,10 @@ import Foundation
 struct Post: Codable {
     let userId, id: Int
     let title, body: String
+    let isFavourite: Bool = false
     
     enum CodingKeys: String, CodingKey {
-        case userId, id, title, body
+        case userId, id, title, body, isFavourite
     }
 }
 

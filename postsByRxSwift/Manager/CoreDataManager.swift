@@ -13,6 +13,8 @@ final class CoreDataManager {
     
     static let manager = CoreDataManager()
     
+    private init() {}
+    
     lazy var manageObjectcontext : NSManagedObjectContext = {
         let context = self.persistentContainer.viewContext
         
