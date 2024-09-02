@@ -31,8 +31,8 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
         passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.LoginConstants.TFWidth, height: Constants.LoginConstants.TFHeight))
         passwordTextField.leftViewMode = .always
         
-        setUpBinding();
-        setUpObservables()
+        setUpBinding()
+        setUpSubscribers()
         
     }
 
@@ -56,13 +56,12 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
 
     }
     
-    private func setUpObservables() {
+    private func setUpSubscribers() {
 
         viewModel
             .onShowLoadingHud
-            .subscribe(
-                onNext: { [weak self] in self?.setLoadingHud(visible: $0) }
-            )
+            .map{ [weak self] in self?.setLoadingHud(visible: $0) }
+            .subscribe()
             .disposed(by: disposeBag)
 
         viewModel

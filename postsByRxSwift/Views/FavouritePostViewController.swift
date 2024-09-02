@@ -62,9 +62,13 @@ class FavouritePostViewController: UIViewController {
     private func subscribeEmptyView() {
         viewModel
             .onShowEmptyView
-            .map { [weak self] in self?.noDataLabel.isHidden = !$0 }
+            .map { [weak self] in self?.setNoView($0) }
             .subscribe()
             .disposed(by: bag)
+    }
+    
+    private func setNoView(_ isEmpty: Bool) {
+        self.noDataLabel.isHidden = !isEmpty
     }
     
     private func setLoadingHud(visible: Bool) {
