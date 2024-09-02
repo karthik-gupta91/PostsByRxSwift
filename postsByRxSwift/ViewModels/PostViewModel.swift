@@ -64,7 +64,7 @@ class PostViewModel {
                         guard let self = self else { return }
                         self.isLoading.accept(false)
                         let okAlert = SingleButtonAlert(
-                            title: "Alert",
+                            title: Constants.Titles.Alert,
                             message: (error as? ApiError)?.localizedDescription ?? "Could not connect to server. Check your network and try again later.",
                             action: AlertAction(buttonTitle: "OK", handler: { print("Ok pressed!") })
                         )

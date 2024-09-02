@@ -19,6 +19,7 @@ struct Constants {
         static let posts = "POSTS"
         static let login = "LOGIN"
         static let favouritePosts = "FAVOURITE POSTS"
+        static let Alert = "Alert"
     }
     
     struct CellIdentifier {
