@@ -12,15 +12,14 @@ import RxCocoa
 
 class LoginViewModel {
     
-    let onShowError = PublishSubject<SingleButtonAlert>()
     let onSuccess = PublishSubject<Void>()
-    
-    let loginButtonTapped = PublishSubject<Void>()
+    let loginButtonTapped = PublishRelay<Void>()
     
     var emailId = BehaviorRelay<String>(value: "")
     var password = BehaviorRelay<String>(value: "")
     
     private let isLoading = BehaviorRelay<Bool>(value: false)
+    
     private let apiClient: ApiClient
     private let disposeBag = DisposeBag()
     

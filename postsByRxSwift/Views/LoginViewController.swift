@@ -60,8 +60,9 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
 
         viewModel
             .onShowLoadingHud
-            .map { [weak self] in self?.setLoadingHud(visible: $0) }
-            .subscribe()
+            .subscribe(
+                onNext: { [weak self] in self?.setLoadingHud(visible: $0) }
+            )
             .disposed(by: disposeBag)
 
         viewModel
@@ -69,14 +70,11 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
             .subscribe(
                 onNext: { [weak self] in
                     self?.pushToTabbarVC()
+                },
+                onError: { error in
+                    print(error)
                 }
             ).disposed(by: disposeBag)
-
-        viewModel
-            .onShowError
-            .map { [weak self] in self?.presentSingleButtonDialog(alert: $0)}
-            .subscribe()
-            .disposed(by: disposeBag)
 
     }
     

@@ -11,10 +11,10 @@ import RxCocoa
 
 class PostViewModel {
     
-    let posts = PublishSubject<[Post]>()
-    let onShowError = PublishSubject<SingleButtonAlert>()
+    let posts = PublishRelay<[Post]>()
+    let onShowError = PublishRelay<SingleButtonAlert>()
     
-    private let isLoading = BehaviorRelay(value: false)
+    private let isLoading = BehaviorRelay(value: true)
     private var apiClient: ApiClient
     private let bag = DisposeBag()
     
@@ -38,14 +38,14 @@ class PostViewModel {
                 self.addCDSavedData(dict: dict)
             }
         }
+        self.posts.accept(self.postArray)
         self.isLoading.accept(false)
-        self.posts.onNext(self.postArray)
     }
     
     func fetchNetworkPosts() {
+        self.isLoading.accept(true)
         if Reachability.isConnectedToNetwork() {
-            self.isLoading.accept(true)
-            apiClient
+            self.apiClient
                 .fetchPosts()
                 .subscribe(
                     onNext: { [weak self] posts in
@@ -57,8 +57,8 @@ class PostViewModel {
                             CDPost.updatePostInCD(post: posts[i])
                         }
                         self.postArray = posts
+                        self.posts.accept(self.postArray)
                         self.isLoading.accept(false)
-                        self.posts.onNext(self.postArray)
                     },
                     onError: { [weak self] error in
                         guard let self = self else { return }
@@ -68,11 +68,14 @@ class PostViewModel {
                             message: (error as? ApiError)?.localizedDescription ?? "Could not connect to server. Check your network and try again later.",
                             action: AlertAction(buttonTitle: "OK", handler: { print("Ok pressed!") })
                         )
-                        self.onShowError.onNext(okAlert)
+                        self.onShowError.accept(okAlert)
                     }
                 )
-                .disposed(by: bag)
+                .disposed(by: self.bag)
+        } else {
+            self.isLoading.accept(false)
         }
+        
         
     }
     
@@ -82,7 +85,7 @@ class PostViewModel {
         } else {
             CDPost.updateFavouriteStatus(post.id, true)
         }
-        posts.onNext(postArray)
+        posts.accept(postArray)
     }
     
     func isFavoritePost(_ post: Post) -> Bool {
