@@ -181,9 +181,9 @@
 				1F39A6CB2C7C9FF5009CF3E8 /* Models */,
 				1F39A6CC2C7D9754009CF3E8 /* Service */,
 				1F39A6EF2C7E21BF009CF3E8 /* Manager */,
-				1F39A6EA2C7E1FE1009CF3E8 /* CoreDataModels */,
 				1F39A6D62C7DBB26009CF3E8 /* Extensions */,
 				1F39A6CF2C7D97CD009CF3E8 /* Helpers */,
+				1F39A6EA2C7E1FE1009CF3E8 /* CDModels */,
 				1F39A6872C7C6A79009CF3E8 /* AppDelegate.swift */,
 				1F39A6892C7C6A79009CF3E8 /* SceneDelegate.swift */,
 				1F39A68D2C7C6A79009CF3E8 /* Main.storyboard */,
@@ -292,12 +292,12 @@
 			path = CDPost;
 			sourceTree = "<group>";
 		};
-		1F39A6EA2C7E1FE1009CF3E8 /* CoreDataModels */ = {
+		1F39A6EA2C7E1FE1009CF3E8 /* CDModels */ = {
 			isa = PBXGroup;
 			children = (
 				1F39A6E92C7E1FE1009CF3E8 /* CDPost */,
 			);
-			path = CoreDataModels;
+			path = CDModels;
 			sourceTree = "<group>";
 		};
 		1F39A6EF2C7E21BF009CF3E8 /* Manager */ = {

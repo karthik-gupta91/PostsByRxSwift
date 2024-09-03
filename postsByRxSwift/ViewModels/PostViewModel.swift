@@ -15,6 +15,8 @@ class PostViewModel {
     let onShowError = PublishRelay<SingleButtonAlert>()
     
     private let isLoading = BehaviorRelay(value: true)
+    private let isEmptyArray = BehaviorRelay(value: true)
+    
     private var apiClient: ApiClient
     private let bag = DisposeBag()
     
@@ -22,6 +24,12 @@ class PostViewModel {
     
     var onShowLoadingHud: Observable<Bool> {
         return isLoading
+            .asObservable()
+            .distinctUntilChanged()
+    }
+    
+    var onShowEmptyView: Observable<Bool> {
+        return isEmptyArray
             .asObservable()
             .distinctUntilChanged()
     }
@@ -42,6 +50,7 @@ class PostViewModel {
             }
         }
         self.posts.accept(self.postArray)
+        self.postArray.count == 0 ? isEmptyArray.accept(true): isEmptyArray.accept(false)
         self.isLoading.accept(false)
     }
     
@@ -61,6 +70,7 @@ class PostViewModel {
                         }
                         self.postArray = posts
                         self.posts.accept(self.postArray)
+                        self.postArray.count == 0 ? isEmptyArray.accept(true): isEmptyArray.accept(false)
                         self.isLoading.accept(false)
                     },
                     onError: { [weak self] error in
@@ -89,6 +99,7 @@ class PostViewModel {
             DatabaseManager.shared.updateFavouriteStatus(post.id, true)
         }
         posts.accept(postArray)
+        self.postArray.count == 0 ? isEmptyArray.accept(true): isEmptyArray.accept(false)
     }
     
     func isFavoritePost(_ post: RPost) -> Bool {

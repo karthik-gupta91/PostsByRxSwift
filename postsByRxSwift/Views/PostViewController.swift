@@ -14,6 +14,7 @@ class PostViewController: UIViewController {
     
     @IBOutlet weak var postTableView: UITableView!
     
+    @IBOutlet var noDataLabel: UILabel!
     private let bag = DisposeBag()
     private let viewModel = PostViewModel()
     
@@ -67,6 +68,18 @@ class PostViewController: UIViewController {
             .map { [weak self] in self?.setLoadingHud(visible: $0) }
             .subscribe()
             .disposed(by: bag)
+    }
+    
+    private func subscribeEmptyView() {
+        viewModel
+            .onShowEmptyView
+            .map { [weak self] in self?.setNoView($0) }
+            .subscribe()
+            .disposed(by: bag)
+    }
+    
+    private func setNoView(_ isEmpty: Bool) {
+        self.noDataLabel.isHidden = !isEmpty
     }
     
     private func setLoadingHud(visible: Bool) {
