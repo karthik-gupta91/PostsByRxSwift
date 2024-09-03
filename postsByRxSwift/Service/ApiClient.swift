@@ -11,11 +11,11 @@ import Alamofire
 
 class ApiClient {
     
-    func fetchPosts() -> Observable<[Post]> {
+    func fetchPosts() -> Observable<[RPost]> {
         return request(ApiRouter.fetchPosts)
     }
     
-    func fetchComments(on postId: Int) -> Observable<[Post]> {
+    func fetchComments(on postId: Int) -> Observable<[RPost]> {
         return request(ApiRouter.fetchComments(postId: postId))
     }
 

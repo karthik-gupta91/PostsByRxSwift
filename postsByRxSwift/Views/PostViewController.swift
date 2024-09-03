@@ -33,7 +33,7 @@ class PostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.fetchCDData()
+        viewModel.fetchRealmDBData()
     }
     
     private func bindPostTableData() {
@@ -46,7 +46,7 @@ class PostViewController: UIViewController {
             cell.configureCell(post, self.viewModel.isFavoritePost(post))
         }.disposed(by: bag)
         
-        postTableView.rx.modelSelected(Post.self).bind{ [unowned self] post in
+        postTableView.rx.modelSelected(RPost.self).bind{ [unowned self] post in
             self.viewModel.updateFavouriteStatus(on: post)
         }.disposed(by: bag)
         

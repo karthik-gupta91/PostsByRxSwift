@@ -11,14 +11,14 @@ import RxCocoa
 
 class PostViewModel {
     
-    let posts = PublishRelay<[Post]>()
+    let posts = PublishRelay<[RPost]>()
     let onShowError = PublishRelay<SingleButtonAlert>()
     
     private let isLoading = BehaviorRelay(value: true)
     private var apiClient: ApiClient
     private let bag = DisposeBag()
     
-    private var postArray = Posts()
+    private var postArray = [RPost]()
     
     var onShowLoadingHud: Observable<Bool> {
         return isLoading
@@ -30,12 +30,15 @@ class PostViewModel {
         self.apiClient = apiClient
     }
     
-    func fetchCDData() {
+    func fetchRealmDBData() {
         self.isLoading.accept(true)
-        if let cdPosts = CDPost.getAllPostsFromCD() {
-            for cdPost in cdPosts {
-                let dict = cdPost.toDict()
-                self.addCDSavedData(dict: dict)
+        if let posts = DatabaseManager.shared.getAllPostsFromRealm() {
+            for post in posts {
+                if let index = postArray.firstIndex(where: {$0.id == post.id}) {
+                    postArray[index] = post
+                } else {
+                    self.postArray.append(post)
+                }
             }
         }
         self.posts.accept(self.postArray)
@@ -54,7 +57,7 @@ class PostViewModel {
                             return
                         }
                         for i in 0..<posts.count {
-                            CDPost.updatePostInCD(post: posts[i])
+                            DatabaseManager.shared.savePostInRealm(posts[i])
                         }
                         self.postArray = posts
                         self.posts.accept(self.postArray)
@@ -79,32 +82,18 @@ class PostViewModel {
         
     }
     
-    func updateFavouriteStatus(on post: Post) {
-        if let favouritePosts = CDPost.getAllFavoritePost(), favouritePosts.contains(where: { $0.id == post.id }) {
-            CDPost.updateFavouriteStatus(post.id, false)
+    func updateFavouriteStatus(on post: RPost) {
+        if let favouritePosts = DatabaseManager.shared.getAllFavoritePost(), favouritePosts.contains(where: { $0.id == post.id }) {
+            DatabaseManager.shared.updateFavouriteStatus(post.id , false)
         } else {
-            CDPost.updateFavouriteStatus(post.id, true)
+            DatabaseManager.shared.updateFavouriteStatus(post.id, true)
         }
         posts.accept(postArray)
     }
     
-    func isFavoritePost(_ post: Post) -> Bool {
-        guard let favouritePosts = CDPost.getAllFavoritePost() else { return false }
+    func isFavoritePost(_ post: RPost) -> Bool {
+        guard let favouritePosts = DatabaseManager.shared.getAllFavoritePost() else { return false }
         return favouritePosts.contains(where: { $0.id == post.id }) ? true : false
-    }
-    
-    func addCDSavedData(dict : [String: Any]) {
-        do {
-            let data = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
-            let model = try JSONDecoder().decode(Post.self, from: data)
-
-            if let index = postArray.firstIndex(where: {$0.id == model.id}) {
-                postArray[index] = model
-            } else {
-                self.postArray.append(model)
-            }
-        }
-        catch{}
     }
     
 }

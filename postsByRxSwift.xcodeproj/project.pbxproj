@@ -39,6 +39,8 @@
 		1F39A6F52C7ED293009CF3E8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6F42C7ED293009CF3E8 /* Reachability.swift */; };
 		1F39A6F82C7ED9E6009CF3E8 /* CDPost+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6F62C7ED9E5009CF3E8 /* CDPost+CoreDataClass.swift */; };
 		1F39A6F92C7ED9E6009CF3E8 /* CDPost+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6F72C7ED9E6009CF3E8 /* CDPost+CoreDataProperties.swift */; };
+		1FCC226E2C8708DD009B0139 /* RPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCC226D2C8708DD009B0139 /* RPostModel.swift */; };
+		1FCC22702C874655009B0139 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCC226F2C874655009B0139 /* DatabaseManager.swift */; };
 		2504DB449288691C2B939277 /* Pods_postsByRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14038B59D4894FCD935CE32 /* Pods_postsByRxSwift.framework */; };
 		72C3A739B833085050067D3F /* Pods_postsByRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C9CAAD0718D7808EA6A6C1 /* Pods_postsByRxSwiftTests.framework */; };
 		E7B2D27E40964B8BD053B422 /* Pods_postsByRxSwift_postsByRxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA063ACC96ECD5714B265208 /* Pods_postsByRxSwift_postsByRxSwiftUITests.framework */; };
@@ -100,6 +102,8 @@
 		1F39A6F42C7ED293009CF3E8 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		1F39A6F62C7ED9E5009CF3E8 /* CDPost+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDPost+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1F39A6F72C7ED9E6009CF3E8 /* CDPost+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDPost+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1FCC226D2C8708DD009B0139 /* RPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPostModel.swift; sourceTree = "<group>"; };
+		1FCC226F2C874655009B0139 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		894D1B4361D6CE58C6B4A4D1 /* Pods-postsByRxSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-postsByRxSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-postsByRxSwiftTests/Pods-postsByRxSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		969F1B8A4D070B4D4862DFAE /* Pods-postsByRxSwift-postsByRxSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-postsByRxSwift-postsByRxSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-postsByRxSwift-postsByRxSwiftUITests/Pods-postsByRxSwift-postsByRxSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BA063ACC96ECD5714B265208 /* Pods_postsByRxSwift_postsByRxSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_postsByRxSwift_postsByRxSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +237,7 @@
 		1F39A6CB2C7C9FF5009CF3E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1FCC226D2C8708DD009B0139 /* RPostModel.swift */,
 				1F39A6BC2C7C826E009CF3E8 /* LoginModel.swift */,
 				1F39A6BA2C7C8115009CF3E8 /* PostModel.swift */,
 			);
@@ -299,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				1F39A6F02C7E21CE009CF3E8 /* CoreDataManager.swift */,
+				1FCC226F2C874655009B0139 /* DatabaseManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				1F39A6D82C7DBB39009CF3E8 /* UIViewController+Extensions.swift in Sources */,
 				1F39A6BB2C7C8115009CF3E8 /* PostModel.swift in Sources */,
 				1F39A68C2C7C6A79009CF3E8 /* LoginViewController.swift in Sources */,
+				1FCC226E2C8708DD009B0139 /* RPostModel.swift in Sources */,
 				1F0855812C80CF640039E50B /* FavoritePostVM.swift in Sources */,
 				1F39A6BD2C7C826E009CF3E8 /* LoginModel.swift in Sources */,
 				1F39A6E02C7DDABC009CF3E8 /* Constants.swift in Sources */,
@@ -581,6 +588,7 @@
 				1F39A6DC2C7DD232009CF3E8 /* String+Extension.swift in Sources */,
 				1F39A6F12C7E21CE009CF3E8 /* CoreDataManager.swift in Sources */,
 				1F39A6D42C7DA465009CF3E8 /* PostTableViewCell.swift in Sources */,
+				1FCC22702C874655009B0139 /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

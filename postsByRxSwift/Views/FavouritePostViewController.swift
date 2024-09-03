@@ -45,7 +45,7 @@ class FavouritePostViewController: UIViewController {
             cell.configureCell(post, true)
         }.disposed(by: bag)
         
-        favouriteTableView.rx.modelSelected(Post.self).bind{ post in
+        favouriteTableView.rx.modelSelected(RPost.self).bind{ post in
             self.viewModel.removeFavouritePost(post)
         }.disposed(by: bag)
         

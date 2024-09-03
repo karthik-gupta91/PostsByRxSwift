@@ -11,13 +11,13 @@ import RxRelay
 
 class FavouriePostVM {
     
-    let favouritePosts = PublishRelay<[Post]>()
+    let favouritePosts = PublishRelay<[RPost]>()
     
     private let isLoading = BehaviorRelay(value: true)
     private let isEmptyArray = BehaviorRelay(value: true)
     private let bag = DisposeBag()
     
-    private var favouritePostArray = Posts()
+    private var favouritePostArray = [RPost]()
     
     var onShowLoadingHud: Observable<Bool> {
         return isLoading
@@ -34,10 +34,9 @@ class FavouriePostVM {
     func fetchFavouritePosts() {
         self.isLoading.accept(true)
         self.favouritePostArray = []
-        if let cdPosts = CDPost.getAllFavoritePost() {
-            for cdPost in cdPosts {
-                let dict = cdPost.toDict()
-                self.addCDSavedData(dict: dict)
+        if let posts = DatabaseManager.shared.getAllFavoritePost() {
+            for post in posts {
+                self.favouritePostArray.append(post)
             }
         }
         self.isLoading.accept(false)
@@ -45,21 +44,11 @@ class FavouriePostVM {
         self.favouritePostArray.count == 0 ? isEmptyArray.accept(true): isEmptyArray.accept(false)
     }
     
-    func removeFavouritePost(_ post: Post) {
-        CDPost.updateFavouriteStatus(post.id, false)
+    func removeFavouritePost(_ post: RPost) {
+        DatabaseManager.shared.updateFavouriteStatus(post.id, false)
         favouritePostArray.removeAll(where: { $0.id == post.id })
         favouritePosts.accept(favouritePostArray)
         self.favouritePostArray.count == 0 ? isEmptyArray.accept(true): isEmptyArray.accept(false)
     }
     
-    func addCDSavedData(dict : [String: Any]) {
-        do {
-            let data = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
-            let model = try JSONDecoder().decode(Post.self, from: data)
-            
-            self.favouritePostArray.append(model)
-            
-        }
-        catch{}
-    }
 }
