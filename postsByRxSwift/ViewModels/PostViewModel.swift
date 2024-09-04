@@ -66,6 +66,9 @@ class PostViewModel {
                             return
                         }
                         for i in 0..<posts.count {
+                            if isFavoritePost(posts[i]) {
+                                posts[i].isFavourite = true
+                            }
                             DatabaseManager.shared.savePostInRealm(posts[i])
                         }
                         self.postArray = posts
