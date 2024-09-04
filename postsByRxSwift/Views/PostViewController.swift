@@ -17,6 +17,7 @@ class PostViewController: UIViewController {
     @IBOutlet var noDataLabel: UILabel!
     private let bag = DisposeBag()
     private let viewModel = PostViewModel()
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,8 @@ class PostViewController: UIViewController {
         self.tabBarController?.navigationItem.title = Constants.Titles.posts
         
         postTableView.register(UINib(nibName: Constants.NibName.postTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.CellIdentifier.postTableViewCell)
-                
+        postTableView.refreshControl = refreshControl
+        
         subscribeLoadingHud()
         subscribeAlert()
         subscribeEmptyView()
@@ -52,6 +54,12 @@ class PostViewController: UIViewController {
             self.viewModel.updateFavouriteStatus(on: post)
         }.disposed(by: bag)
         
+        postTableView.refreshControl?.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.fetchNetworkPosts()
+                self?.refreshControl.endRefreshing()
+            })
+            .disposed(by: bag)
     }
     
     private func subscribeAlert() {

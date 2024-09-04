@@ -239,7 +239,6 @@
 			children = (
 				1FCC226D2C8708DD009B0139 /* RPostModel.swift */,
 				1F39A6BC2C7C826E009CF3E8 /* LoginModel.swift */,
-				1F39A6BA2C7C8115009CF3E8 /* PostModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,6 +294,8 @@
 		1F39A6EA2C7E1FE1009CF3E8 /* CDModels */ = {
 			isa = PBXGroup;
 			children = (
+				1F39A6F02C7E21CE009CF3E8 /* CoreDataManager.swift */,
+				1F39A6BA2C7C8115009CF3E8 /* PostModel.swift */,
 				1F39A6E92C7E1FE1009CF3E8 /* CDPost */,
 			);
 			path = CDModels;
@@ -303,7 +304,6 @@
 		1F39A6EF2C7E21BF009CF3E8 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				1F39A6F02C7E21CE009CF3E8 /* CoreDataManager.swift */,
 				1FCC226F2C874655009B0139 /* DatabaseManager.swift */,
 			);
 			path = Manager;
