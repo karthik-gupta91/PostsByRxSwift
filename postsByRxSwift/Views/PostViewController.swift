@@ -27,6 +27,7 @@ class PostViewController: UIViewController {
                 
         subscribeLoadingHud()
         subscribeAlert()
+        subscribeEmptyView()
         bindPostTableData()
         viewModel.fetchNetworkPosts()
 
