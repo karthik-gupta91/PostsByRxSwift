@@ -46,6 +46,6 @@ This repository is written in swift 5 (latest swift version) , RxSwift and archi
 * App will try to retrieve the data, In case of success, posts will be shown on the screen, if it fails, Alert will be shown.
 * On clicking on every post, the background of selection will change, marking it as favourite. Cliking on it again will unmark it.
 * We can see all selected favourite posts in favourite tab as well.
-* In case of network failure we are trying to fetch data from Coredata.
+* In case of network failure we are trying to fetch data from realmDB.
 
 
