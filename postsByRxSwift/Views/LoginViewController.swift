@@ -17,14 +17,14 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
     
     private let viewModel = LoginViewModel()
     private let disposeBag = DisposeBag()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.title = Constants.Titles.login
         navigationController?.navigationBar.prefersLargeTitles = false
-
+        
         emailTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.LoginConstants.TFWidth, height: Constants.LoginConstants.TFHeight))
         emailTextField.leftViewMode = .always
         
@@ -35,7 +35,7 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
         setUpSubscribers()
         
     }
-
+    
     private func setUpBinding() {
         
         emailTextField.rx.text.orEmpty
@@ -46,24 +46,27 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
             .bind(to: viewModel.password)
             .disposed(by: disposeBag)
         
-        viewModel.loginButtonEnabled
-        .bind(to: loginButton.rx.isEnabled)
-        .disposed(by: disposeBag)
-        
         loginButton.rx.tap.asObservable()
             .bind(to: viewModel.loginButtonTapped)
             .disposed(by: disposeBag)
-
+        
     }
     
     private func setUpSubscribers() {
-
+        
+        viewModel
+            .loginButtonEnabled
+            .map{ [weak self] in
+                self?.loginButton.isEnabled = $0
+            }.subscribe()
+            .disposed(by: disposeBag)
+        
         viewModel
             .onShowLoadingHud
             .map{ [weak self] in self?.setLoadingHud(visible: $0) }
             .subscribe()
             .disposed(by: disposeBag)
-
+        
         viewModel
             .onSuccess
             .subscribe(
@@ -74,7 +77,7 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
                     print(error)
                 }
             ).disposed(by: disposeBag)
-
+        
     }
     
     private func pushToTabbarVC() {
