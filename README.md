@@ -49,3 +49,5 @@ This repository is written in swift 5 (latest swift version) , RxSwift and archi
 * In case of network failure we are trying to fetch data from realmDB.
 
 
+https://github.com/user-attachments/assets/89074864-b78b-4549-a0a0-6f50e06810e7
+
