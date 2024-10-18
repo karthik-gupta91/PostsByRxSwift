@@ -33,7 +33,7 @@
 		1F39A6DC2C7DD232009CF3E8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6DB2C7DD232009CF3E8 /* String+Extension.swift */; };
 		1F39A6DE2C7DD9FF009CF3E8 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6DD2C7DD9FF009CF3E8 /* ApiError.swift */; };
 		1F39A6E02C7DDABC009CF3E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6DF2C7DDABC009CF3E8 /* Constants.swift */; };
-		1F39A6E32C7DDD3D009CF3E8 /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6E22C7DDD3D009CF3E8 /* ApiRouter.swift */; };
+		1F39A6E32C7DDD3D009CF3E8 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6E22C7DDD3D009CF3E8 /* ApiRequest.swift */; };
 		1F39A6F12C7E21CE009CF3E8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6F02C7E21CE009CF3E8 /* CoreDataManager.swift */; };
 		1F39A6F32C7ED190009CF3E8 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6F22C7ED190009CF3E8 /* NSManagedObject+Extension.swift */; };
 		1F39A6F52C7ED293009CF3E8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39A6F42C7ED293009CF3E8 /* Reachability.swift */; };
@@ -96,7 +96,7 @@
 		1F39A6DB2C7DD232009CF3E8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		1F39A6DD2C7DD9FF009CF3E8 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		1F39A6DF2C7DDABC009CF3E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		1F39A6E22C7DDD3D009CF3E8 /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
+		1F39A6E22C7DDD3D009CF3E8 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		1F39A6F02C7E21CE009CF3E8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		1F39A6F22C7ED190009CF3E8 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		1F39A6F42C7ED293009CF3E8 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 			children = (
 				1F39A6DD2C7DD9FF009CF3E8 /* ApiError.swift */,
 				1F39A6CD2C7D979C009CF3E8 /* ApiClient.swift */,
-				1F39A6E22C7DDD3D009CF3E8 /* ApiRouter.swift */,
+				1F39A6E22C7DDD3D009CF3E8 /* ApiRequest.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -583,7 +583,7 @@
 				1F39A6F92C7ED9E6009CF3E8 /* CDPost+CoreDataProperties.swift in Sources */,
 				1F39A68A2C7C6A79009CF3E8 /* SceneDelegate.swift in Sources */,
 				1F39A6BF2C7C830C009CF3E8 /* LoginViewModel.swift in Sources */,
-				1F39A6E32C7DDD3D009CF3E8 /* ApiRouter.swift in Sources */,
+				1F39A6E32C7DDD3D009CF3E8 /* ApiRequest.swift in Sources */,
 				1F39A6F52C7ED293009CF3E8 /* Reachability.swift in Sources */,
 				1F39A6DC2C7DD232009CF3E8 /* String+Extension.swift in Sources */,
 				1F39A6F12C7E21CE009CF3E8 /* CoreDataManager.swift in Sources */,

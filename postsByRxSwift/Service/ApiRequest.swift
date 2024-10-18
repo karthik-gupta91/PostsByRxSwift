@@ -1,5 +1,5 @@
 //
-//  ApiRouter.swift
+//  ApiRequest.swift
 //  postsByRxSwift
 //
 //  Created by Kartik Gupta on 27/08/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-enum ApiRouter: URLRequestConvertible {
+enum ApiRequest: URLRequestConvertible {
     
     case fetchPosts
     case fetchComments(postId: Int)
