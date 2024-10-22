@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import PKHUD
 
 class PostViewController: UIViewController, Alert {
     
@@ -73,7 +72,7 @@ class PostViewController: UIViewController, Alert {
     private func subscribeLoadingHud() {
         viewModel
             .onShowLoadingHud
-            .map { [weak self] in self?.setLoadingHud(visible: $0) }
+            .map { [weak self] in self?.view.displayActivityIndicator(shouldDisplay: $0) }
             .subscribe()
             .disposed(by: bag)
     }
@@ -88,11 +87,6 @@ class PostViewController: UIViewController, Alert {
     
     private func setNoView(_ isEmpty: Bool) {
         self.noDataLabel.isHidden = !isEmpty
-    }
-    
-    private func setLoadingHud(visible: Bool) {
-        PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
-        visible ? PKHUD.sharedHUD.show(onView: view) : PKHUD.sharedHUD.hide()
     }
 
 }

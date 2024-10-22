@@ -45,7 +45,7 @@ class PostViewModel {
     func fetchNetworkPosts() {
         self.isLoading.accept(true)
         if Reachability.isConnectedToNetwork() {
-            debugPrint("calling post api to get latest data")
+            debugPrint("Log: calling post api to get latest data")
             self.apiClient
                 .fetchPosts()
                 .subscribe(

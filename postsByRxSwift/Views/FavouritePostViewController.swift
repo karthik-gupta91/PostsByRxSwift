@@ -7,7 +7,6 @@
 
 import UIKit
 import RxSwift
-import PKHUD
 
 class FavouritePostViewController: UIViewController {
 
@@ -27,7 +26,6 @@ class FavouritePostViewController: UIViewController {
         subscribeLoadingHud()
         subscribeEmptyView()
         bindFavouriteTableData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +52,7 @@ class FavouritePostViewController: UIViewController {
     private func subscribeLoadingHud() {
         viewModel
             .onShowLoadingHud
-            .map { [weak self] in self?.setLoadingHud(visible: $0) }
+            .map { [weak self] in self?.view.displayActivityIndicator(shouldDisplay: $0) }
             .subscribe()
             .disposed(by: bag)
     }
@@ -71,9 +69,4 @@ class FavouritePostViewController: UIViewController {
         self.noDataLabel.isHidden = !isEmpty
     }
     
-    private func setLoadingHud(visible: Bool) {
-        PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
-        visible ? PKHUD.sharedHUD.show(onView: view) : PKHUD.sharedHUD.hide()
-    }
-
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 import RxSwift
-import PKHUD
 
 class ViewController: UIViewController {
     
@@ -25,15 +24,19 @@ class ViewController: UIViewController {
         self.title = Constants.Titles.login
         navigationController?.navigationBar.prefersLargeTitles = false
         
+        addTextFieldInsets()
+        
+        setUpBinding()
+        setUpSubscribers()
+        
+    }
+    
+    private func addTextFieldInsets() {
         emailTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.LoginConstants.TFWidth, height: Constants.LoginConstants.TFHeight))
         emailTextField.leftViewMode = .always
         
         passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.LoginConstants.TFWidth, height: Constants.LoginConstants.TFHeight))
         passwordTextField.leftViewMode = .always
-        
-        setUpBinding()
-        setUpSubscribers()
-        
     }
     
     private func setUpBinding() {
@@ -63,7 +66,7 @@ class ViewController: UIViewController {
         
         viewModel
             .onShowLoadingHud
-            .map{ [weak self] in self?.setLoadingHud(visible: $0) }
+            .map{ [weak self] in self?.view.displayActivityIndicator(shouldDisplay: $0) }
             .subscribe()
             .disposed(by: disposeBag)
         
@@ -86,8 +89,4 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func setLoadingHud(visible: Bool) {
-        PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
-        visible ? PKHUD.sharedHUD.show(onView: view) : PKHUD.sharedHUD.hide()
-    }
 }
