@@ -38,25 +38,14 @@ class PostViewModel {
         self.apiClient = apiClient
     }
     
-    func fetchRealmDBData() {
-        self.isLoading.accept(true)
-        if let posts = DatabaseManager.shared.getAllPostsFromRealm() {
-            for post in posts {
-                if let index = postArray.firstIndex(where: {$0.id == post.id}) {
-                    postArray[index] = post
-                } else {
-                    self.postArray.append(post)
-                }
-            }
-        }
-        self.posts.accept(self.postArray)
-        self.postArray.count == 0 ? isEmptyArray.accept(true): isEmptyArray.accept(false)
-        self.isLoading.accept(false)
+    func fetchPosts() {
+        fetchRealmDBData() ? nil : fetchNetworkPosts()
     }
     
     func fetchNetworkPosts() {
         self.isLoading.accept(true)
         if Reachability.isConnectedToNetwork() {
+            debugPrint("calling post api to get latest data")
             self.apiClient
                 .fetchPosts()
                 .subscribe(
@@ -65,14 +54,7 @@ class PostViewModel {
                         guard posts.count > 0 else {
                             return
                         }
-                        for i in 0..<posts.count {
-                            if isFavoritePost(posts[i]) {
-                                posts[i].isFavourite = true
-                            }
-                            DatabaseManager.shared.savePostInRealm(posts[i])
-                        }
-                        self.postArray = posts
-                        self.posts.accept(self.postArray)
+                        checkAndUpdate(posts: posts)
                         self.postArray.count == 0 ? isEmptyArray.accept(true): isEmptyArray.accept(false)
                         self.isLoading.accept(false)
                     },
@@ -91,8 +73,34 @@ class PostViewModel {
         } else {
             self.isLoading.accept(false)
         }
-        
-        
+    }
+    
+    private func fetchRealmDBData() -> Bool {
+        self.isLoading.accept(true)
+        if let posts = DatabaseManager.shared.getAllPostsFromRealm() {
+            for post in posts {
+                if let index = postArray.firstIndex(where: {$0.id == post.id}) {
+                    postArray[index] = post
+                } else {
+                    self.postArray.append(post)
+                }
+            }
+        }
+        self.posts.accept(self.postArray)
+        self.postArray.count == 0 ? isEmptyArray.accept(true): isEmptyArray.accept(false)
+        self.isLoading.accept(false)
+        return self.postArray.count == 0 ? false: true
+    }
+    
+    private func checkAndUpdate(posts: [RPost]) {
+        for i in 0..<posts.count {
+            if isFavoritePost(posts[i]) {
+                posts[i].isFavourite = true
+            }
+            DatabaseManager.shared.savePostInRealm(posts[i])
+        }
+        self.postArray = posts
+        self.posts.accept(self.postArray)
     }
     
     func updateFavouriteStatus(on post: RPost) {

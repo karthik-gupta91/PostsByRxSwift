@@ -15,6 +15,7 @@ class PostViewController: UIViewController, Alert {
     @IBOutlet weak var postTableView: UITableView!
     
     @IBOutlet var noDataLabel: UILabel!
+    
     private let bag = DisposeBag()
     private let viewModel = PostViewModel()
     private let refreshControl = UIRefreshControl()
@@ -31,13 +32,11 @@ class PostViewController: UIViewController, Alert {
         subscribeAlert()
         subscribeEmptyView()
         bindPostTableData()
-        viewModel.fetchNetworkPosts()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.fetchRealmDBData()
+        viewModel.fetchPosts()
     }
     
     private func bindPostTableData() {
