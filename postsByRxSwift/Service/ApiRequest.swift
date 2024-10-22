@@ -11,7 +11,6 @@ import Alamofire
 enum ApiRequest: URLRequestConvertible {
     
     case fetchPosts
-    case fetchComments(postId: Int)
     
     //MARK: - URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
@@ -40,7 +39,7 @@ enum ApiRequest: URLRequestConvertible {
     //MARK: - HttpMethod
     private var method: HTTPMethod {
         switch self {
-        case .fetchPosts, .fetchComments:
+        case .fetchPosts:
             return .get
         }
     }
@@ -50,15 +49,13 @@ enum ApiRequest: URLRequestConvertible {
         switch self {
         case .fetchPosts:
             return "posts"
-        case .fetchComments(postId: let postId):
-            return "posts/\(postId)/comments"
         }
     }
     
     //MARK: - Parameters
     private var parameters: Parameters? {
         switch self {
-        case .fetchPosts, .fetchComments:
+        case .fetchPosts:
             return nil
         }
     }

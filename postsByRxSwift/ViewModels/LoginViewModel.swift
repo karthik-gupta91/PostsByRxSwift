@@ -20,7 +20,6 @@ class LoginViewModel {
     
     private let isLoading = BehaviorRelay<Bool>(value: false)
     
-    private let apiClient: ApiClient
     private let disposeBag = DisposeBag()
     
     var onShowLoadingHud: Observable<Bool> {
@@ -36,9 +35,7 @@ class LoginViewModel {
         }
     }
     
-    init(apiClient: ApiClient = ApiClient()) {
-        self.apiClient = apiClient
-        
+    init() {
         loginButtonTapped
             .subscribe(
                 onNext: { [weak self] in
@@ -51,7 +48,7 @@ class LoginViewModel {
     private func loginUser(){
         self.isLoading.accept(true)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isLoading.accept(false)
             self.onSuccess.onNext(())
         }

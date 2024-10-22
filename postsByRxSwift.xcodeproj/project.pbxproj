@@ -176,6 +176,7 @@
 		1F39A6862C7C6A79009CF3E8 /* postsByRxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				1F39A6872C7C6A79009CF3E8 /* AppDelegate.swift */,
 				1F39A6C92C7C9FEB009CF3E8 /* Views */,
 				1F39A6CA2C7C9FEF009CF3E8 /* ViewModels */,
 				1F39A6CB2C7C9FF5009CF3E8 /* Models */,
@@ -184,7 +185,6 @@
 				1F39A6D62C7DBB26009CF3E8 /* Extensions */,
 				1F39A6CF2C7D97CD009CF3E8 /* Helpers */,
 				1F39A6EA2C7E1FE1009CF3E8 /* CDModels */,
-				1F39A6872C7C6A79009CF3E8 /* AppDelegate.swift */,
 				1F39A6892C7C6A79009CF3E8 /* SceneDelegate.swift */,
 				1F39A68D2C7C6A79009CF3E8 /* Main.storyboard */,
 				1F39A6932C7C6A7A009CF3E8 /* Assets.xcassets */,

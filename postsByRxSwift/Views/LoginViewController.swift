@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import PKHUD
 
-class ViewController: UIViewController, SingleButtonDialogPresenter {
+class ViewController: UIViewController {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -91,5 +91,3 @@ class ViewController: UIViewController, SingleButtonDialogPresenter {
         visible ? PKHUD.sharedHUD.show(onView: view) : PKHUD.sharedHUD.hide()
     }
 }
-
-

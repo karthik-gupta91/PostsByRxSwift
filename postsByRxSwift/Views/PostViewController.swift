@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import PKHUD
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, Alert {
     
     @IBOutlet weak var postTableView: UITableView!
     
@@ -65,7 +65,7 @@ class PostViewController: UIViewController {
     private func subscribeAlert() {
         viewModel
             .onShowError
-            .map { [weak self] in self?.presentSingleButtonDialog(alert: $0)}
+            .map { [weak self] in self?.showAlert(alert: $0)}
             .subscribe()
             .disposed(by: bag)
         
@@ -97,5 +97,3 @@ class PostViewController: UIViewController {
     }
 
 }
-
-extension PostViewController: SingleButtonDialogPresenter { }

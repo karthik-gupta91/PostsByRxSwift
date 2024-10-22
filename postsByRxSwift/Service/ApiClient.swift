@@ -14,10 +14,6 @@ class ApiClient {
     func fetchPosts() -> Observable<[RPost]> {
         return request(ApiRequest.fetchPosts)
     }
-    
-    func fetchComments(on postId: Int) -> Observable<[RPost]> {
-        return request(ApiRequest.fetchComments(postId: postId))
-    }
 
     //MARK: - Request
     private func request<T: Codable> (_ urlConvertible: URLRequestConvertible) -> Observable<T> {
