@@ -46,12 +46,7 @@ class LoginViewModel {
     }
     
     private func loginUser(){
-        self.isLoading.accept(true)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.isLoading.accept(false)
-            self.onSuccess.onNext(())
-        }
+        self.onSuccess.onNext(())
     }
 
 }
